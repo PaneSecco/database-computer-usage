@@ -1,0 +1,70 @@
+database computer & usage
+
+
+Computer:
+
+computer_id (Primary Key)
+marca
+modello
+numero_di_serie
+tipo (desktop, laptop, server, etc.)
+anno_di_acquisto
+specifiche_tecniche (può includere CPU, RAM, HDD/SSD, scheda grafica, etc.)
+impiegato_id (Foreign Key a Impiegato)
+
+
+Componenti:
+
+componente_id (Primary Key)
+tipo (CPU, RAM, HDD, SSD, scheda madre, scheda grafica, alimentatore, etc.)
+specifiche
+disponibilità
+
+
+Inventario_Componenti: 
+
+inventario_id (Primary Key)
+computer_id (Foreign Key a Computer)
+componente_id (Foreign Key a Componenti)
+quantità
+
+
+Dipartimento:
+
+dipartimento_id (Primary Key)
+nome
+responsabile
+
+
+Impiegato: 
+
+impiegato_id (Primary Key)
+nome
+cognome
+dipartimento_id (Foreign Key a Dipartimento)
+computer_id (Foreign Key a Computer)
+
+
+Software:
+
+software_id (Primary Key)
+nome
+versione
+
+
+Installazione_Software: (molti a molti)
+
+installazione_software_id (Primary Key)
+computer_id (Foreign Key a Computer)
+software_id (Foreign Key a Software)
+data_installazione
+
++ utenti
+
+relazioni: 
+uno a uno su computer con impiegato (tramite impiegato_id)
+uno a molti su Dipartimento con impiegato (tramite dipartimento_id)
+molti a molti è installazione_software tra computer e Software
+
+(il CRUD è sufficiente per le tablle descritte qua sopra)
+ 
